@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Input from '../../Input/Input';
+import { Link } from 'react-router-dom';
 // import { userContext } from '../../Context/userContext';
 
 const Movies = () => {
@@ -18,12 +19,14 @@ const Movies = () => {
         return characters.map((character) => {
             return (
                 <li className="liMovies" key={character._id}>
-                    {character.title}
-                    <img
-                        classname="imgMovie"
-                        src={character.image}
-                        alt={character.title}
-                    ></img>
+                    <h3> {character.title}</h3>
+                    <Link to={'/movies/' + character.title}>
+                        <img
+                            classname="imgMovie"
+                            src={character.image}
+                            alt={character.title}
+                        />
+                    </Link>
                 </li>
             );
         });
@@ -35,7 +38,7 @@ const Movies = () => {
 
     return (
         <>
-            <h1>Estas son tus Movies </h1>
+            <h2>Movies </h2>
             <Input />
             <ul className="listMovies">{renderList()}</ul>
         </>

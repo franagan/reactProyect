@@ -25,6 +25,7 @@ const RegisterUser = () => {
     return (
         <div>
             <form onSubmit={handleSubmit(result)} className="formRegister">
+                <label>Name :</label>
                 <input
                     type="text"
                     placeholder="name"
@@ -33,6 +34,7 @@ const RegisterUser = () => {
                     })}
                 />
                 {errors.name && <p>{errors.name.message} </p>}
+                <label>Email :</label>
                 <input
                     type="email"
                     placeholder="email"
@@ -41,6 +43,7 @@ const RegisterUser = () => {
                     })}
                 />
                 {errors.email && <p>{errors.email.message} </p>}
+                <label>Password :</label>
                 <input
                     type="password"
                     placeholder="password"
@@ -49,6 +52,7 @@ const RegisterUser = () => {
                     })}
                 />
                 {errors.password && <p>{errors.password.message} </p>}
+                <label>Lastname:</label>
                 <input
                     type="text"
                     placeholder="lastname"
@@ -57,6 +61,7 @@ const RegisterUser = () => {
                     })}
                 />
                 {errors.lastname && <p>{errors.lastname.message} </p>}
+                <label>Age :</label>
                 <input
                     type="text"
                     placeholder="age"
@@ -64,7 +69,9 @@ const RegisterUser = () => {
                         required: 'la edad no puede estar vacio',
                     })}
                 />
+                <br />
                 {errors.age && <p>{errors.age.message} </p>}
+                <label>Phone:</label>
                 <input
                     type="text"
                     placeholder="phone"
@@ -73,6 +80,7 @@ const RegisterUser = () => {
                     })}
                 />
                 {errors.telefono && <p>{errors.telefono.message} </p>}
+                <br />
                 <button type="submit">submit</button>
             </form>
         </div>

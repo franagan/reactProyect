@@ -3,8 +3,9 @@ import '../styles/App.css';
 import { Route, Routes, useNavigate } from 'react-router-dom';
 import NavBar from './NavBar/NavBar';
 import Home from './Pages/Home/Home';
-import Login from './Login/Login';
+import Login from './Pages/Login/Login';
 import Movies from './Pages/Movies/Movies';
+import MovieDetail from './Pages/MovieDetail/MovieDetail';
 import Cinemas from './Pages/Cinemas/Cinemas';
 import Profile from './Profile/Profile';
 import Footer from './Footer/Footer';
@@ -58,14 +59,19 @@ function App() {
                     src={imageHeader}
                     alt="logo-header"
                 />
-                <h1>Proyect React Movies</h1>
                 <NavBar user={user} logoutUser={logoutUser} />
+                <h1>Proyect React Movies</h1>
+
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route
                         path="/movies"
                         element={<Movies getMovies={getMovies} />}
                     />
+                    <Route
+                        path="/movies/:movie"
+                        element={<MovieDetail />}
+                    ></Route>
                     <Route path="/cinemas" element={<Cinemas />} />
                     <Route path="/register" element={<RegisterUser />} />
                     <Route
