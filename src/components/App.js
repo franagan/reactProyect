@@ -68,10 +68,7 @@ function App() {
                         path="/movies"
                         element={<Movies getMovies={getMovies} />}
                     />
-                    <Route
-                        path="/movies/:movie"
-                        element={<MovieDetail />}
-                    ></Route>
+                    <Route path="/movies/:id" element={<MovieDetail />}></Route>
                     <Route path="/cinemas" element={<Cinemas />} />
                     <Route path="/register" element={<RegisterUser />} />
                     <Route

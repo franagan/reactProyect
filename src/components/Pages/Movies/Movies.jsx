@@ -20,7 +20,7 @@ const Movies = () => {
             return (
                 <li className="liMovies" key={character._id}>
                     <h3> {character.title}</h3>
-                    <Link to={'/movies/' + character.title}>
+                    <Link to={'/movies/' + character._id}>
                         <img
                             classname="imgMovie"
                             src={character.image}
