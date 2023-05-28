@@ -3,18 +3,17 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 const MovieDetail = () => {
-    const { _id } = useParams();
-    console.log(_id);
-    const [character, setCharacter] = useState({});
+    const { id } = useParams();
+    const [character, setCharacter] = useState([]);
 
     const getDataCharacter = async () => {
-        const response = await axios.get(
-            'https://proyect-movies-eight.vercel.app/movie/movies/' + _id
+        const res = await axios.get(
+            'https://proyect-movies-eight.vercel.app/movie/movies/'
         );
-
-        setCharacter(response.data);
-        console.log(character);
+        console.log(res.data);
+        setCharacter(res.data);
     };
+
     useEffect(() => {
         getDataCharacter();
     }, []);
