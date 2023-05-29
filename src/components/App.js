@@ -16,6 +16,7 @@ import { useState } from 'react';
 import { API } from '../services/api';
 import { userContext } from './Context/userContext';
 import RegisterUser from './Pages/Register/RegisterUser';
+import CinemaDetail from './Pages/CinemaDetail/CinemaDetail';
 
 function App() {
     const userValue = { name: '{user.email}' };
@@ -70,6 +71,10 @@ function App() {
                     />
                     <Route path="/movies/:id" element={<MovieDetail />}></Route>
                     <Route path="/cinemas" element={<Cinemas />} />
+                    <Route
+                        path="/cinemas/:id"
+                        element={<CinemaDetail />}
+                    ></Route>
                     <Route path="/register" element={<RegisterUser />} />
                     <Route
                         path="/profile"

@@ -2,7 +2,6 @@ import axios from 'axios';
 import { useEffect, useState } from 'react';
 import Input from '../../Input/Input';
 import { Link } from 'react-router-dom';
-import Movies from '../Movies/Movies';
 // import { userContext } from '../../Context/userContext';
 
 const Cinemas = () => {
@@ -22,10 +21,9 @@ const Cinemas = () => {
                 <li className="liMovies" key={character._id}>
                     <h3> {character.name}</h3>
                     <p>{character.location}</p>
-                    <p>{character.movies}</p>
                     <Link to={'/cinemas/' + character._id}>
                         <img
-                            classname="imgMovie"
+                            className="imgMovie"
                             src={character.image}
                             alt={character.name}
                         />
