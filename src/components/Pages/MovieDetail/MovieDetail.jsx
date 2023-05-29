@@ -4,6 +4,7 @@ import axios from 'axios';
 
 const MovieDetail = () => {
     const { id } = useParams();
+    console.log(id);
     const [character, setCharacter] = useState([]);
 
     const getDataCharacter = async () => {
@@ -11,7 +12,9 @@ const MovieDetail = () => {
             'https://proyect-movies-eight.vercel.app/movie/movies/'
         );
         console.log(res.data);
-        setCharacter(res.data);
+        const character = res.data.find(({ _id }) => _id === id);
+        console.log(character);
+        setCharacter(character);
     };
 
     useEffect(() => {

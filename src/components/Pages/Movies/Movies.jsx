@@ -22,7 +22,7 @@ const Movies = () => {
                     <h3> {character.title}</h3>
                     <Link to={'/movies/' + character._id}>
                         <img
-                            classname="imgMovie"
+                            className="imgMovie"
                             src={character.image}
                             alt={character.title}
                         />
