@@ -1,7 +1,5 @@
-import React from 'react';
 import { useForm } from 'react-hook-form';
-// import { Axios } from 'axios';
-// import { useEffect } from 'react';
+import { Axios } from 'axios';
 
 const RegisterUser = () => {
     const {
@@ -10,18 +8,13 @@ const RegisterUser = () => {
         formState: { errors },
     } = useForm();
 
-    const result = (data) => {
+    const result = async (data) => {
         console.log(data);
-        // const postNewUser = async () => {
-        //     const response = await Axios.get(
-        //         'https://proyect-movies-eight.vercel.app/user/register'
-        //     );
-        //     // setCharacters(response.data);
-        // };
-        // useEffect(() => {
-        //     postNewUser();
-        // }, []);
+        const res = await new Axios(
+            'https://proyect-movies-eight.vercel.app/user/register'
+        );
     };
+
     return (
         <div>
             <form onSubmit={handleSubmit(result)} className="formRegister">
