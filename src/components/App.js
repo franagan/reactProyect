@@ -17,6 +17,8 @@ import { API } from '../services/api';
 import { userContext } from './Context/userContext';
 import RegisterUser from './Pages/Register/RegisterUser';
 import CinemaDetail from './Pages/CinemaDetail/CinemaDetail';
+import RegisterMovie from './Pages/Register/RegisterMovie';
+// import { set } from 'react-hook-form';
 
 function App() {
     const userValue = { name: '{user.email}' };
@@ -26,6 +28,7 @@ function App() {
     const [loginError, setLoginError] = useState('');
     const [theme, setTheme] = useState(false);
     const [name, setName] = useState('');
+
     const loginUser = (formData, prevRoute) => {
         API.post('/user/login', formData).then((res) => {
             console.log(res.data);
@@ -50,7 +53,7 @@ function App() {
 
     return (
         <userContext.Provider
-            value={{ userValue, name, setName, setLoginError }}
+            value={{ userValue, name, setName, setLoginError, user }}
         >
             <div className={theme ? 'App' : 'light'}>
                 <button onClick={() => setTheme(!theme)}>Color Change</button>
@@ -85,6 +88,15 @@ function App() {
                             />
                         }
                     />
+                    <Route
+                        path="/registerMovie"
+                        element={
+                            <AuthRoute
+                                user={user}
+                                component={<RegisterMovie user={user} />}
+                            />
+                        }
+                    />
 
                     <Route
                         path="/login"
@@ -92,6 +104,7 @@ function App() {
                             <Login
                                 loginUser={loginUser}
                                 loginError={loginError}
+                                setLoginError={setLoginError}
                             />
                         }
                     />

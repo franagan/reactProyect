@@ -7,12 +7,14 @@ const AuthRoute = ({ user, component }) => {
 
     if (!user)
         return (
-            <Navigate
-                to="/login"
-                state={{
-                    prevRoute: location.pathname,
-                }}
-            />
+            <>
+                <Navigate
+                    to="/login"
+                    state={{
+                        prevRoute: location.pathname,
+                    }}
+                />
+            </>
         );
 };
 

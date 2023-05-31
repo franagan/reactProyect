@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import { Axios } from 'axios';
+import axios from 'axios';
 
 const RegisterUser = () => {
     const {
@@ -10,23 +10,15 @@ const RegisterUser = () => {
 
     const result = async (data) => {
         console.log(data);
-        const res = await new Axios(
-            'https://proyect-movies-eight.vercel.app/user/register'
+        const res = await axios.post(
+            process.env.REACT_APP_BACK_URL + '/user/register'
         );
+        console.log(res);
     };
 
     return (
         <div>
             <form onSubmit={handleSubmit(result)} className="formRegister">
-                <label>Name :</label>
-                <input
-                    type="text"
-                    placeholder="name"
-                    {...register('name', {
-                        required: 'el name no puede estar vacio',
-                    })}
-                />
-                {errors.name && <p>{errors.name.message} </p>}
                 <label>Email :</label>
                 <input
                     type="email"
@@ -45,6 +37,15 @@ const RegisterUser = () => {
                     })}
                 />
                 {errors.password && <p>{errors.password.message} </p>}
+                <label>Name :</label>
+                <input
+                    type="text"
+                    placeholder="name"
+                    {...register('name', {
+                        required: 'el name no puede estar vacio',
+                    })}
+                />
+                {errors.name && <p>{errors.name.message} </p>}
                 <label>Lastname:</label>
                 <input
                     type="text"
@@ -54,16 +55,6 @@ const RegisterUser = () => {
                     })}
                 />
                 {errors.lastname && <p>{errors.lastname.message} </p>}
-                <label>Age :</label>
-                <input
-                    type="text"
-                    placeholder="age"
-                    {...register('age', {
-                        required: 'la edad no puede estar vacio',
-                    })}
-                />
-                <br />
-                {errors.age && <p>{errors.age.message} </p>}
                 <label>Phone:</label>
                 <input
                     type="text"

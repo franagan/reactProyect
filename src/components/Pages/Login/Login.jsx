@@ -6,7 +6,7 @@ const initial_state = {
     password: '',
 };
 
-const Login = ({ loginUser, loginError }) => {
+const Login = ({ loginUser, loginError, setLoginError }) => {
     const location = useLocation();
     const { state } = location;
     console.log(location);
@@ -17,6 +17,7 @@ const Login = ({ loginUser, loginError }) => {
         const { value, name } = ev.target;
         console.log(name, value);
         setFormData({ ...formData, [name]: value });
+        setLoginError('usuario o contraseña incorrecta');
     };
 
     const submitForm = (ev) => {
@@ -24,6 +25,7 @@ const Login = ({ loginUser, loginError }) => {
         console.log('form send');
         loginUser(formData, state ? state.prevRoute : null);
         setFormData(initial_state);
+        // setLoginError('usuario o contraseña incorrecta');
     };
 
     return (
