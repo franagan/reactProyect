@@ -15,8 +15,9 @@ const Movies = () => {
         console.log(response.data);
     };
 
-    const renderList = () => {
-        return characters.map((character) => {
+    const renderList = (e) => {
+        return characters.filter((character) => {
+            character.title.includes(e.title).map(character);
             return (
                 <li className="liMovies" key={character._id}>
                     <h3> {character.title}</h3>
@@ -40,9 +41,9 @@ const Movies = () => {
         <>
             <h2>Movies </h2>
             <Input />
+
             <ul className="listMovies">{renderList()}</ul>
         </>
     );
 };
-
 export default Movies;

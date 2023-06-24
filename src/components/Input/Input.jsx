@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import { userContext } from '../Context/userContext';
+import MiContexto from '../Shared/Mycontext';
 
 const Input = () => {
-    const { setName } = useContext(userContext);
+    const { setName } = useContext(MiContexto);
     return (
         <div>
-            <input onChange={(e) => setName(e.target.value)} />
+            <input type="search" onChange={(e) => setName(e.target.value)} />
         </div>
     );
 };
