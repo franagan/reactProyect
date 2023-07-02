@@ -65,7 +65,6 @@ function App() {
                 />
                 <NavBar user={user} logoutUser={logoutUser} />
                 <h1>Proyect React Movies</h1>
-
                 <Routes>
                     <Route path="/" element={<Home />} />
                     <Route

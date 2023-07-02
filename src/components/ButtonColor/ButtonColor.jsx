@@ -10,7 +10,7 @@ const handleClick = (ev) => {
 const ButtonColor = () => {
     return (
         <form>
-            <input type="checbox" name="theme" onClick={ha} />
+            <input type="checbox" name="theme" onClick={handleClick} />
         </form>
     );
 };

@@ -9,7 +9,7 @@ const MovieDetail = () => {
 
     const getDataCharacter = async () => {
         const res = await axios.get(
-            'https://proyect-movies-eight.vercel.app/movie/movies/'
+            'https://proyect-movies-eight.vercel.app/movie/movies'
         );
         console.log(res.data);
         const character = res.data.find(({ _id }) => _id === id);

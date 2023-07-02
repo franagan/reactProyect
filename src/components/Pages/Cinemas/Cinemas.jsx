@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useEffect, useState } from 'react';
-import Input from '../../Input/Input';
+// import Input from '../../Input/Input';
 import { Link } from 'react-router-dom';
 // import { userContext } from '../../Context/userContext';
 
@@ -40,7 +40,7 @@ const Cinemas = () => {
     return (
         <>
             <h2>Cinemas</h2>
-            <Input />
+            {/* <Input /> */}
             <ul className="listMovies">{renderList()}</ul>
         </>
     );
